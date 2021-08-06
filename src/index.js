@@ -40,22 +40,12 @@ export class Grid extends React.PureComponent {
     curOpen: null,
     lastOpen: null,
   }
-  scrollOut = (e) => {
+  scrollOut = e => {
     if (!this.props.lockScroll) {
-      this.state.open && this.toggle(null);
-      this.clicked = false;
+      this.state.curOpen && this.toggle(null)
+      this.clicked = false
     }
-  };
-
-  handleScroll = (e) => {
-    let element = e.target;
-    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-      // do something at end of scroll
-      this.scrollOut();
-    }
-  };
-
-
+  }
   toggle = key =>
     this.setState(
       state => ({
@@ -174,9 +164,9 @@ export class Grid extends React.PureComponent {
             ref={measureRef}
             style={{ ...styles.outer, ...this.props.style, overflow }}
             {...rest}
-            onScroll={this.handleScroll}
-            onWheel={this.handleScroll}
-            onTouchMove={this.handleScroll}>
+            onScroll={this.scrollOut}
+            onWheel={this.scrollOut}
+            onTouchMove={this.scrollOut}>
             <Measure
               client
               innerRef={r => (this.innerRef = r)}
