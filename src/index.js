@@ -42,7 +42,7 @@ export class Grid extends React.PureComponent {
   }
   scrollOut = (e) => {
     if (!this.props.lockScroll) {
-      this.state.open && this.toggle(undefined);
+      this.state.open && this.toggle(null);
       this.clicked = false;
     }
   };
