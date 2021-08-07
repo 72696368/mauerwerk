@@ -40,6 +40,7 @@ export class Grid extends React.PureComponent {
     curOpen: null,
     lastOpen: null,
   }
+
   scrollOut = e => {
     if (!this.props.lockScroll) {
       this.state.curOpen && this.toggle(null)
