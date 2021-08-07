@@ -207,7 +207,6 @@ export class Grid extends React.PureComponent {
     )
   }
 }
-
 export default props =>
   console.warn(
     'The default export will be deprecated next version, import { Grid } from mauerwerk instead!'
